@@ -21,7 +21,6 @@ public struct BoardSetup {
 }
 
 public struct BoardOutput: Equatable {
-    
     public init(field: [[OutputFieldState]]) {
         self.field = field
     }
