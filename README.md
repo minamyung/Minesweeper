@@ -1,1 +1,2 @@
 # minesweeper-kata
+# minesweeper-kata
