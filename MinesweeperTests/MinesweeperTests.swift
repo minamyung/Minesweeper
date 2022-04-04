@@ -83,4 +83,18 @@ class MinesweeperTests: XCTestCase {
         let output = minesweeper.output
         XCTAssertEqual(output, BoardOutput(field: [[.mine, .sweep(1), .sweep(0)]]))
     }
+    
+    func test_Given1by3BoardWithLeftMineAndRightMine_ThenReturn1by3BoardWithTwoMinesAndSweep2() {
+        let input = BoardSetup(height: 1, width: 3, field: [[.mine, .empty, .mine]])
+        var minesweeper = Minesweeper(board: input)
+        minesweeper.sweep()
+        let output = minesweeper.output
+        XCTAssertEqual(output, BoardOutput(field: [[.mine, .sweep(2), .mine]]))}
+    
+    func test_Given2by2BoardWithTopLeftMine_ThenReturn2by2BoardWith1MineAnd3Sweep3() {
+        let input = BoardSetup(height: 2, width: 2, field: [[.mine, .empty], [.empty, .empty]])
+        var minesweeper = Minesweeper(board: input)
+        minesweeper.sweep()
+        let output = minesweeper.output
+        XCTAssertEqual(output, BoardOutput(field: [[.mine, .sweep(1)], [.sweep(1), .sweep(1)]]))}
 }
