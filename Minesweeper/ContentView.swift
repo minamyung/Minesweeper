@@ -9,8 +9,37 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
+        MinesweeperBoardView()
             .padding()
+    }
+}
+
+struct MinesweeperBoardView: View {
+    @State var viewModel = MinesweeperBoardViewModel(10, 10)
+    var body: some View {
+        VStack {
+            ForEach(viewModel.board.field, id: \.self) { row in
+                HStack {
+                    ForEach(row, id: \.self) { cell in
+                        switch cell {
+                        case .mine:
+                            ZStack {
+                                Color.red
+                                    .aspectRatio(1, contentMode: .fit)
+                                Text("💣")
+                            }
+                        case .sweep(let count):
+                            ZStack {
+                                Color.gray
+                                    .aspectRatio(1, contentMode: .fit)
+                                Text(String(count))
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .font(.largeTitle)
     }
 }
 

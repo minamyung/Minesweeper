@@ -98,5 +98,6 @@ class MinesweeperTests: XCTestCase {
         var minesweeper = Minesweeper(board: input)
         minesweeper.sweep()
         let output = minesweeper.output
-        XCTAssertEqual(output, BoardOutput(field: [[.mine, .sweep(1)], [.sweep(1), .sweep(1)]]))}
+        XCTAssertEqual(output, BoardOutput(field: [[.mine, .sweep(1)], [.sweep(1), .sweep(1)]]))
+    }
 }

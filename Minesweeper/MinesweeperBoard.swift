@@ -3,7 +3,7 @@ public enum InputFieldState: Equatable {
     case empty
 }
 
-public enum OutputFieldState: Equatable {
+public enum OutputFieldState: Equatable, Hashable {
     case mine
     case sweep(Int)
 }
