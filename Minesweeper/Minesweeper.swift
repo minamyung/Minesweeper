@@ -1,5 +1,10 @@
 public struct Minesweeper {
     let board: BoardSetup
+    let surroundingCellTransformation =
+        [(-1, -1), (-1, 0), (-1, 1),
+         ( 0, -1),          ( 0, 1),
+         ( 1, -1), ( 1, 0), ( 1, 1)]
+    
     public var output: BoardOutput
     
     public init(board: BoardSetup) {
@@ -24,25 +29,10 @@ public struct Minesweeper {
     }
     
     private mutating func updateSurroundingCells(_ rowIndex: Int, _ columnIndex: Int) {
-        let surroundingCellIndices = getSurroundingCellIndices(rowIndex, columnIndex)
-        
-        for cellIndices in surroundingCellIndices {
-            if cellIsUpdateable(cellIndices[0], cellIndices[1]) {
-                incrementMineCount(cellIndices[0], cellIndices[1])
-            }
-        }
-    }
-    
-    private func getSurroundingCellIndices(_ rowIndex: Int, _ columnIndex: Int) -> [[Int]] {
-        let surroundingCellTransformation =
-            [[-1, -1], [-1, 0], [-1, 1],
-             [ 0, -1],          [ 0, 1],
-             [ 1, -1], [ 1, 0], [ 1, 1]]
-        var surroundingCellIndices: [[Int]] = []
-        for transformation in surroundingCellTransformation {
-            surroundingCellIndices.append([rowIndex+transformation[0], columnIndex+transformation[1]])
-        }
-        return surroundingCellIndices
+        surroundingCellTransformation
+            .map { (rowIndex+$0, columnIndex+$1) }
+            .filter(cellIsUpdateable)
+            .forEach { self.incrementMineCount($0, $1) }
     }
     
     private func cellIsUpdateable(_ rowIndex: Int, _ columnIndex: Int) -> Bool {
