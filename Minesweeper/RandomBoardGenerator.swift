@@ -27,7 +27,10 @@ public struct RandomBoardGenerator: BoardGenerator {
             repeating: row,
             count: self.height)
         for _ in 0..<self.mines {
-            let randomIndex = self.indexSelector.getRandomIndex()
+            var randomIndex = self.indexSelector.getRandomIndex()
+            while field[randomIndex.rowIndex][randomIndex.columnIndex] == .mine {
+                randomIndex = self.indexSelector.getRandomIndex()
+            }
             field[randomIndex.rowIndex][randomIndex.columnIndex] = .mine
         }
         return BoardSetup(

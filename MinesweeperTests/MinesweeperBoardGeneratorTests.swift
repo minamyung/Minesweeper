@@ -67,7 +67,7 @@ class BoardGeneratorTests: XCTestCase {
                                      [.mine, .mine]])
     }
     
-    func test_foo() {
+    func test_GivenSameMineIndexSeveralTimes_ShouldGetADifferentIndex() {
         let mockIndexSelector = MockRandomIndexSelector(height: 2, width: 2)
         mockIndexSelector.mockedValues = [(1,0), (1,0), (0,1), (1,1)]
         var sut = RandomBoardGenerator(height: 2, width: 2, mines: 3)
