@@ -15,7 +15,7 @@ struct ContentView: View {
 }
 
 struct MinesweeperBoardView: View {
-    @State var viewModel = MinesweeperBoardViewModel(10, 10)
+    @State var viewModel = MinesweeperBoardViewModel(2, 2)
     var body: some View {
         VStack {
             ForEach(viewModel.board.field, id: \.self) { row in

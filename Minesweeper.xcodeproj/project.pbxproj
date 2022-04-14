@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F71DFA312808636100B7677B /* MinesweeperBoardGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71DFA302808636100B7677B /* MinesweeperBoardGeneratorTests.swift */; };
+		F71DFA33280866EC00B7677B /* BoardGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71DFA32280866EC00B7677B /* BoardGenerator.swift */; };
+		F71DFA352808670C00B7677B /* PrimeBoardGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71DFA342808670C00B7677B /* PrimeBoardGenerator.swift */; };
+		F71DFA372808674500B7677B /* RandomBoardGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71DFA362808674500B7677B /* RandomBoardGenerator.swift */; };
+		F71DFA3928086EE100B7677B /* RandomIndexSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71DFA3828086EE100B7677B /* RandomIndexSelector.swift */; };
+		F71DFA3B280871F500B7677B /* MockRandomIndexSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71DFA3A280871F500B7677B /* MockRandomIndexSelector.swift */; };
 		F7E195C727F5DFF300A31BC3 /* MinesweeperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E195C627F5DFF300A31BC3 /* MinesweeperApp.swift */; };
 		F7E195C927F5DFF300A31BC3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E195C827F5DFF300A31BC3 /* ContentView.swift */; };
 		F7E195CB27F5DFF500A31BC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7E195CA27F5DFF500A31BC3 /* Assets.xcassets */; };
@@ -29,6 +35,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F71DFA302808636100B7677B /* MinesweeperBoardGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinesweeperBoardGeneratorTests.swift; sourceTree = "<group>"; };
+		F71DFA32280866EC00B7677B /* BoardGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardGenerator.swift; sourceTree = "<group>"; };
+		F71DFA342808670C00B7677B /* PrimeBoardGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimeBoardGenerator.swift; sourceTree = "<group>"; };
+		F71DFA362808674500B7677B /* RandomBoardGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomBoardGenerator.swift; sourceTree = "<group>"; };
+		F71DFA3828086EE100B7677B /* RandomIndexSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomIndexSelector.swift; sourceTree = "<group>"; };
+		F71DFA3A280871F500B7677B /* MockRandomIndexSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRandomIndexSelector.swift; sourceTree = "<group>"; };
 		F7E195C327F5DFF300A31BC3 /* Minesweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Minesweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E195C627F5DFF300A31BC3 /* MinesweeperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinesweeperApp.swift; sourceTree = "<group>"; };
 		F7E195C827F5DFF300A31BC3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,6 +100,10 @@
 				F7E195CA27F5DFF500A31BC3 /* Assets.xcassets */,
 				F7E195CC27F5DFF500A31BC3 /* Preview Content */,
 				F7E195F027F5E0A000A31BC3 /* MinesweeperBoard.swift */,
+				F71DFA32280866EC00B7677B /* BoardGenerator.swift */,
+				F71DFA342808670C00B7677B /* PrimeBoardGenerator.swift */,
+				F71DFA362808674500B7677B /* RandomBoardGenerator.swift */,
+				F71DFA3828086EE100B7677B /* RandomIndexSelector.swift */,
 			);
 			path = Minesweeper;
 			sourceTree = "<group>";
@@ -105,6 +121,8 @@
 			children = (
 				F7E195D727F5DFF500A31BC3 /* MinesweeperTests.swift */,
 				F7EFCC2427FF385C002E5294 /* MinesweeperBoardViewModelTests.swift */,
+				F71DFA302808636100B7677B /* MinesweeperBoardGeneratorTests.swift */,
+				F71DFA3A280871F500B7677B /* MockRandomIndexSelector.swift */,
 			);
 			path = MinesweeperTests;
 			sourceTree = "<group>";
@@ -210,10 +228,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7E195F327F5E6CD00A31BC3 /* Minesweeper.swift in Sources */,
+				F71DFA3928086EE100B7677B /* RandomIndexSelector.swift in Sources */,
 				F7E195C927F5DFF300A31BC3 /* ContentView.swift in Sources */,
 				F7E195C727F5DFF300A31BC3 /* MinesweeperApp.swift in Sources */,
 				F7E195F127F5E0A000A31BC3 /* MinesweeperBoard.swift in Sources */,
+				F71DFA33280866EC00B7677B /* BoardGenerator.swift in Sources */,
+				F71DFA372808674500B7677B /* RandomBoardGenerator.swift in Sources */,
 				F7EFCC2327FF3762002E5294 /* MinesweeperBoardViewModel.swift in Sources */,
+				F71DFA352808670C00B7677B /* PrimeBoardGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,7 +243,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F71DFA3B280871F500B7677B /* MockRandomIndexSelector.swift in Sources */,
 				F7EFCC2527FF385C002E5294 /* MinesweeperBoardViewModelTests.swift in Sources */,
+				F71DFA312808636100B7677B /* MinesweeperBoardGeneratorTests.swift in Sources */,
 				F7E195D827F5DFF500A31BC3 /* MinesweeperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
