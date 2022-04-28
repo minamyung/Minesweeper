@@ -97,13 +97,13 @@
 				F7E195C827F5DFF300A31BC3 /* ContentView.swift */,
 				F7EFCC2227FF3762002E5294 /* MinesweeperBoardViewModel.swift */,
 				F7E195F227F5E6CD00A31BC3 /* Minesweeper.swift */,
-				F7E195CA27F5DFF500A31BC3 /* Assets.xcassets */,
-				F7E195CC27F5DFF500A31BC3 /* Preview Content */,
 				F7E195F027F5E0A000A31BC3 /* MinesweeperBoard.swift */,
 				F71DFA32280866EC00B7677B /* BoardGenerator.swift */,
 				F71DFA342808670C00B7677B /* PrimeBoardGenerator.swift */,
 				F71DFA362808674500B7677B /* RandomBoardGenerator.swift */,
 				F71DFA3828086EE100B7677B /* RandomIndexSelector.swift */,
+				F7E195CA27F5DFF500A31BC3 /* Assets.xcassets */,
+				F7E195CC27F5DFF500A31BC3 /* Preview Content */,
 			);
 			path = Minesweeper;
 			sourceTree = "<group>";

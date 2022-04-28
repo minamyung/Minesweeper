@@ -15,31 +15,37 @@ struct ContentView: View {
 }
 
 struct MinesweeperBoardView: View {
-    @State var viewModel = MinesweeperBoardViewModel(2, 2)
+    @State var viewModel = MinesweeperBoardViewModel(4, 4)
+    
     var body: some View {
         VStack {
-            ForEach(viewModel.board.field, id: \.self) { row in
-                HStack {
-                    ForEach(row, id: \.self) { cell in
-                        switch cell {
-                        case .mine:
-                            ZStack {
-                                Color.red
-                                    .aspectRatio(1, contentMode: .fit)
-                                Text("💣")
-                            }
-                        case .sweep(let count):
-                            ZStack {
-                                Color.gray
-                                    .aspectRatio(1, contentMode: .fit)
-                                Text(String(count))
-                            }
-                        }
-                    }
-                }
-            }
+            ForEach(viewModel.rows, content: rowView)
         }
         .font(.largeTitle)
+    }
+    
+    private func rowView(_ row: RowViewModel) -> some View {
+        HStack {
+            ForEach(row.cells, content: cellView)
+        }
+    }
+    
+    @ViewBuilder
+    private func cellView(_ cell: CellViewModel) -> some View {
+        switch cell.state {
+        case .mine:
+            ZStack {
+                Color.red
+                    .aspectRatio(1, contentMode: .fit)
+                Text("💣")
+            }
+        case .sweep(let count):
+            ZStack {
+                Color.gray
+                    .aspectRatio(1, contentMode: .fit)
+                Text(String(count))
+            }
+        }
     }
 }
 
