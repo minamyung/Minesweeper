@@ -1,10 +1,22 @@
 import Foundation
 
 public struct MinesweeperBoardViewModel {
-    public let rows: [RowViewModel]
+    public var rows: [RowViewModel] = []
+    private let height: Int
+    private let width: Int
     
     public init(_ height: Int, _ width: Int) {
-        let boardSetup = RandomBoardGenerator(height: height, width: width, mines: (height*width)/2).generate()
+        self.height = height
+        self.width = width
+        self.reset()
+    }
+    
+    public mutating func reset() {
+        let boardSetup = RandomBoardGenerator(
+            height: self.height,
+            width: self.width,
+            mines: (self.height * self.width)/10)
+            .generate()
         var minesweeper = Minesweeper(board: boardSetup)
         minesweeper.sweep()
         self.rows = minesweeper

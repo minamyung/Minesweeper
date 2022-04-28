@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  Minesweeper
-//
-//  Created by Manon Myung on 31/03/2022.
-//
-
 import SwiftUI
 
 struct ContentView: View {
@@ -15,36 +8,22 @@ struct ContentView: View {
 }
 
 struct MinesweeperBoardView: View {
-    @State var viewModel = MinesweeperBoardViewModel(4, 4)
+    @State var viewModel = MinesweeperBoardViewModel(10, 10)
     
     var body: some View {
         VStack {
             ForEach(viewModel.rows, content: rowView)
+            Button("Reset") {
+                viewModel.reset()
+            }
         }
+        .minimumScaleFactor(0.00001)
         .font(.largeTitle)
     }
     
     private func rowView(_ row: RowViewModel) -> some View {
         HStack {
-            ForEach(row.cells, content: cellView)
-        }
-    }
-    
-    @ViewBuilder
-    private func cellView(_ cell: CellViewModel) -> some View {
-        switch cell.state {
-        case .mine:
-            ZStack {
-                Color.red
-                    .aspectRatio(1, contentMode: .fit)
-                Text("💣")
-            }
-        case .sweep(let count):
-            ZStack {
-                Color.gray
-                    .aspectRatio(1, contentMode: .fit)
-                Text(String(count))
-            }
+            ForEach(row.cells, content: CellView.init)
         }
     }
 }
