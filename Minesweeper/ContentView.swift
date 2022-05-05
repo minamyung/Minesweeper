@@ -21,9 +21,15 @@ struct MinesweeperBoardView: View {
         .font(.largeTitle)
     }
     
-    private func rowView(_ row: RowViewModel) -> some View {
+    private func rowView(_ row: MinesweeperRow) -> some View {
         HStack {
-            ForEach(row.cells, content: CellView.init)
+            ForEach(row.cells, content: cellView)
+        }
+    }
+    
+    private func cellView(cell: MinesweeperCell) -> CellView {
+        CellView(cell: cell) {
+            viewModel.cellAction(for: cell)
         }
     }
 }
