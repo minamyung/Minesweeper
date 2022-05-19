@@ -1,6 +1,9 @@
 import Foundation
 
 public protocol BoardGenerator {
-    init(height: Int, width: Int, mines: Int)
+    var height: Int { get set }
+    var width: Int { get set }
+    var mines: Int { get set }
+    
     func generate() -> BoardSetup
 }

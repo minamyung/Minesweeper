@@ -1,19 +1,15 @@
 import Foundation
 
 public protocol RandomIndexSelector {
-    init(height: Int, width: Int)
+    var height: Int { get set }
+    var width: Int { get set }
     
     func getRandomIndex() -> (rowIndex: Int, columnIndex: Int)
 }
 
 struct DefaultRandomIndexSelector: RandomIndexSelector {
-    private let height: Int
-    private let width: Int
-    
-    init(height: Int, width: Int) {
-        self.height = height
-        self.width = width
-    }
+    public var height: Int = 0
+    public var width: Int = 0
     
     func getRandomIndex() -> (rowIndex: Int, columnIndex: Int) {
         let rowIndex = Int.random(in: 0..<self.height)

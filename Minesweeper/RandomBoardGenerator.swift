@@ -1,18 +1,18 @@
 import Foundation
 
 public struct RandomBoardGenerator: BoardGenerator {
-    let height: Int
-    let width: Int
-    let mines: Int
-    var indexSelector: RandomIndexSelector
+    public var height: Int = 0 {
+        didSet { self.indexSelector.height = self.height }
+    }
     
-    public init(height: Int, width: Int, mines: Int) {
-        self.height = height
-        self.width = width
-        self.mines = mines
-        self.indexSelector = DefaultRandomIndexSelector(
-            height: height,
-            width: width)
+    public var width: Int = 0 {
+        didSet { self.indexSelector.width = self.width }
+    }
+    
+    public var mines: Int = 0 
+    var indexSelector: RandomIndexSelector = DefaultRandomIndexSelector()
+    
+    public init() {
     }
     
     public mutating func setIndexSelector(to indexSelector: RandomIndexSelector) {

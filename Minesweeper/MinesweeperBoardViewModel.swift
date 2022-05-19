@@ -2,23 +2,28 @@ import Foundation
 
 public struct MinesweeperBoardViewModel {
     public var rows: [MinesweeperRow] = []
-    private var boardGeneratorType: BoardGenerator.Type = RandomBoardGenerator.self
+    private let boardGenerator: BoardGenerator
     private let height: Int
     private let width: Int
     private var minesweeper: Minesweeper!
     
-    public init(_ height: Int, _ width: Int) {
+    public init(
+        _ height: Int,
+        _ width: Int,
+        boardGenerator: BoardGenerator = RandomBoardGenerator()
+    ) {
         self.height = height
         self.width = width
+        var boardGenerator = boardGenerator
+        boardGenerator.height = self.height
+        boardGenerator.width = self.width
+        boardGenerator.mines = (self.height * self.width)/10
+        self.boardGenerator = boardGenerator
         self.reset()
     }
     
     public mutating func reset() {
-        let boardSetup = boardGeneratorType.init(
-            height: self.height,
-            width: self.width,
-            mines: (self.height * self.width)/10)
-            .generate()
+        let boardSetup = self.boardGenerator.generate()
         var minesweeper = Minesweeper(board: boardSetup)
         minesweeper.sweep()
         self.minesweeper = minesweeper
@@ -26,10 +31,6 @@ public struct MinesweeperBoardViewModel {
             .output
             .field
             .map(MinesweeperRow.init)
-    }
-    
-    public mutating func setBoardGeneratorType(to boardGeneratorType: BoardGenerator.Type) {
-        self.boardGeneratorType = boardGeneratorType
     }
     
     public mutating func cellAction(for cell: MinesweeperCell) {
