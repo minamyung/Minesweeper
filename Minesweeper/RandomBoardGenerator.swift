@@ -15,7 +15,7 @@ public struct RandomBoardGenerator: BoardGenerator {
             width: width)
     }
     
-    public mutating func setIndexSelector(indexSelector: RandomIndexSelector) {
+    public mutating func setIndexSelector(to indexSelector: RandomIndexSelector) {
         self.indexSelector = indexSelector
     }
     
