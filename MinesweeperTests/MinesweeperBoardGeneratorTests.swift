@@ -48,7 +48,7 @@ class BoardGeneratorTests: XCTestCase {
         let mockIndexSelector = MockRandomIndexSelector(height: 1, width: 1)
         mockIndexSelector.mockedValues.append((0,0))
         var sut = RandomBoardGenerator(height: 1, width: 1, mines: 1)
-        sut.setIndexSelector(indexSelector: mockIndexSelector)
+        sut.setIndexSelector(to: mockIndexSelector)
         let board = sut.generate()
         XCTAssertEqual(board.height, 1)
         XCTAssertEqual(board.width, 1)
@@ -59,7 +59,7 @@ class BoardGeneratorTests: XCTestCase {
         let mockIndexSelector = MockRandomIndexSelector(height: 2, width: 2)
         mockIndexSelector.mockedValues = [(0,0), (1,0), (0,1), (1,1)]
         var sut = RandomBoardGenerator(height: 2, width: 2, mines: 4)
-        sut.setIndexSelector(indexSelector: mockIndexSelector)
+        sut.setIndexSelector(to: mockIndexSelector)
         let board = sut.generate()
         XCTAssertEqual(board.height, 2)
         XCTAssertEqual(board.width, 2)
@@ -71,11 +71,21 @@ class BoardGeneratorTests: XCTestCase {
         let mockIndexSelector = MockRandomIndexSelector(height: 2, width: 2)
         mockIndexSelector.mockedValues = [(1,0), (1,0), (0,1), (1,1)]
         var sut = RandomBoardGenerator(height: 2, width: 2, mines: 3)
-        sut.setIndexSelector(indexSelector: mockIndexSelector)
+        sut.setIndexSelector(to: mockIndexSelector)
         let board = sut.generate()
         XCTAssertEqual(board.height, 2)
         XCTAssertEqual(board.width, 2)
         XCTAssertEqual(board.field, [[.empty, .mine],
                                      [.mine, .mine]])
+    }
+}
+
+extension RandomBoardGenerator {
+    init(height: Int, width: Int, mines: Int) {
+        var generator = Self()
+        generator.height = height
+        generator.width = width
+        generator.mines = mines
+        self = generator
     }
 }
