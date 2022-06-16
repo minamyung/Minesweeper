@@ -158,6 +158,16 @@ class MinesweeperBoardViewModelTests: XCTestCase {
         XCTAssertEqual(sut.playState, .won)
     }
     
+    func test_givenLostGame_whenReset_shouldSetToInProgress() {
+        let boardGenerator = SpyBoardGenerator()
+        var sut = MinesweeperBoardViewModel(1, 1, boardGenerator: boardGenerator)
+        sut.playState = .lost
+        
+        sut.reset()
+        
+        XCTAssertEqual(sut.playState, .inProgress)
+    }
+    
     private func getCell(viewModel: MinesweeperBoardViewModel, rowIndex: Int, columnIndex: Int) throws -> MinesweeperCell {
         guard rowIndex < viewModel.rows.count else {
             throw TestError.rowIndexOutOfBounds

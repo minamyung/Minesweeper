@@ -13,9 +13,11 @@ struct MinesweeperBoardView: View {
     var body: some View {
         VStack {
             ForEach(viewModel.rows, content: rowView)
+                .disabled(viewModel.playState != .inProgress)
             Button("Reset") {
                 viewModel.reset()
             }
+            Text(viewModel.playState.rawValue)
         }
         .minimumScaleFactor(0.00001)
         .font(.largeTitle)
@@ -39,3 +41,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+//TODO: animations etc when winning/losing a game

@@ -32,6 +32,7 @@ public struct MinesweeperBoardViewModel {
             .output
             .field
             .map(MinesweeperRow.init)
+        self.playState = .inProgress
     }
     
     public mutating func cellAction(for cell: MinesweeperCell) {
@@ -65,16 +66,18 @@ public struct MinesweeperBoardViewModel {
     }
     
     private func countSweptCells(in row: MinesweeperRow) -> Int {
-        row
-            .cells
-            .filter { $0.state.isSweep }
-            .count
+        countCells(in: row) { $0.isSweep }
     }
     
     private func countDetonatedCells(in row: MinesweeperRow) -> Int {
+        countCells(in: row) { $0.isMine }
+    }
+    
+    private func countCells(in row: MinesweeperRow, using condition: (MinesweeperCell.State) -> Bool) -> Int {
         row
             .cells
-            .filter { $0.state.isMine }
+            .map(\.state)
+            .filter(condition)
             .count
     }
     
@@ -104,7 +107,7 @@ public struct MinesweeperBoardViewModel {
     }
 }
 
-public enum PlayState {
+public enum PlayState: String {
     case inProgress
     case lost
     case won
