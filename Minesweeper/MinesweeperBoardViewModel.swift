@@ -1,6 +1,7 @@
 import Foundation
 
 public struct MinesweeperBoardViewModel {
+    public var playState = PlayState.inProgress
     public var rows: [MinesweeperRow] = []
     private let boardGenerator: BoardGenerator
     private let height: Int
@@ -40,6 +41,55 @@ public struct MinesweeperBoardViewModel {
             )
 
         rows[index.section].cells[index.item].state = state
+        
+        self.updatePlayState()
+    }
+    
+    private mutating func updatePlayState() {
+        let detonatedCellCount = rows
+            .map(countDetonatedCells)
+            .reduce(0, +)
+        
+        if detonatedCellCount > 0 {
+            self.playState = .lost
+            return
+        }
+        
+        let sweptCellCount = rows
+            .map(countSweptCells)
+            .reduce(0, +)
+        
+        if sweptCellCount == width * height - numberOfMines {
+            self.playState = .won
+        }
+    }
+    
+    private func countSweptCells(in row: MinesweeperRow) -> Int {
+        row
+            .cells
+            .filter { $0.state.isSweep }
+            .count
+    }
+    
+    private func countDetonatedCells(in row: MinesweeperRow) -> Int {
+        row
+            .cells
+            .filter { $0.state.isMine }
+            .count
+    }
+    
+    private var numberOfMines: Int {
+        minesweeper
+            .output
+            .field
+            .flatMap(covertToStates)
+            .map(\.isMine)
+            .filter { $0 }
+            .count
+    }
+    
+    private func covertToStates(_ input: [OutputFieldState]) -> [MinesweeperCell.State] {
+        input.map(MinesweeperCell.State.init)
     }
     
     private func index(for targetCell: MinesweeperCell) -> IndexPath? {
@@ -52,6 +102,12 @@ public struct MinesweeperBoardViewModel {
         }
         return nil
     }
+}
+
+public enum PlayState {
+    case inProgress
+    case lost
+    case won
 }
 
 public struct MinesweeperRow: Identifiable {
@@ -90,4 +146,14 @@ public struct MinesweeperCell: Identifiable {
     }
 }
 
-
+extension MinesweeperCell.State {
+    var isSweep: Bool {
+        guard case .sweep = self else { return false }
+        return true
+    }
+    
+    var isMine: Bool {
+        guard case .mine = self else { return false }
+        return true
+    }
+}
