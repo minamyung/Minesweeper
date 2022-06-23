@@ -14,6 +14,10 @@
 		F71DFA3B280871F500B7677B /* MockRandomIndexSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71DFA3A280871F500B7677B /* MockRandomIndexSelector.swift */; };
 		F7880D38281AE8CF001A5B11 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7880D37281AE8CF001A5B11 /* CellView.swift */; };
 		F79E5A6A283687E3004A0F43 /* MockBoardGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79E5A69283687E3004A0F43 /* MockBoardGenerator.swift */; };
+		F7C17B262864AB29006CA9FF /* Confetto.sks in Resources */ = {isa = PBXBuildFile; fileRef = F7C17B252864AB29006CA9FF /* Confetto.sks */; };
+		F7C17B282864AD38006CA9FF /* RainConfetto.sks in Resources */ = {isa = PBXBuildFile; fileRef = F7C17B272864AD38006CA9FF /* RainConfetto.sks */; };
+		F7C17B2A2864ADF2006CA9FF /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C17B292864ADF2006CA9FF /* ConfettiView.swift */; };
+		F7C17B2C2864BA54006CA9FF /* UIConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C17B2B2864BA54006CA9FF /* UIConfettiView.swift */; };
 		F7E195C727F5DFF300A31BC3 /* MinesweeperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E195C627F5DFF300A31BC3 /* MinesweeperApp.swift */; };
 		F7E195C927F5DFF300A31BC3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E195C827F5DFF300A31BC3 /* ContentView.swift */; };
 		F7E195CB27F5DFF500A31BC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7E195CA27F5DFF500A31BC3 /* Assets.xcassets */; };
@@ -43,6 +47,10 @@
 		F71DFA3A280871F500B7677B /* MockRandomIndexSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRandomIndexSelector.swift; sourceTree = "<group>"; };
 		F7880D37281AE8CF001A5B11 /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
 		F79E5A69283687E3004A0F43 /* MockBoardGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBoardGenerator.swift; sourceTree = "<group>"; };
+		F7C17B252864AB29006CA9FF /* Confetto.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Confetto.sks; sourceTree = "<group>"; };
+		F7C17B272864AD38006CA9FF /* RainConfetto.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RainConfetto.sks; sourceTree = "<group>"; };
+		F7C17B292864ADF2006CA9FF /* ConfettiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiView.swift; sourceTree = "<group>"; };
+		F7C17B2B2864BA54006CA9FF /* UIConfettiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConfettiView.swift; sourceTree = "<group>"; };
 		F7E195C327F5DFF300A31BC3 /* Minesweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Minesweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E195C627F5DFF300A31BC3 /* MinesweeperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinesweeperApp.swift; sourceTree = "<group>"; };
 		F7E195C827F5DFF300A31BC3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,6 +105,8 @@
 			children = (
 				F7E195C627F5DFF300A31BC3 /* MinesweeperApp.swift */,
 				F7E195C827F5DFF300A31BC3 /* ContentView.swift */,
+				F7C17B252864AB29006CA9FF /* Confetto.sks */,
+				F7C17B272864AD38006CA9FF /* RainConfetto.sks */,
 				F7EFCC2227FF3762002E5294 /* MinesweeperBoardViewModel.swift */,
 				F7E195F227F5E6CD00A31BC3 /* Minesweeper.swift */,
 				F7E195F027F5E0A000A31BC3 /* MinesweeperBoard.swift */,
@@ -106,6 +116,8 @@
 				F7880D37281AE8CF001A5B11 /* CellView.swift */,
 				F7E195CA27F5DFF500A31BC3 /* Assets.xcassets */,
 				F7E195CC27F5DFF500A31BC3 /* Preview Content */,
+				F7C17B292864ADF2006CA9FF /* ConfettiView.swift */,
+				F7C17B2B2864BA54006CA9FF /* UIConfettiView.swift */,
 			);
 			path = Minesweeper;
 			sourceTree = "<group>";
@@ -212,7 +224,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7E195CE27F5DFF500A31BC3 /* Preview Assets.xcassets in Resources */,
+				F7C17B262864AB29006CA9FF /* Confetto.sks in Resources */,
 				F7E195CB27F5DFF500A31BC3 /* Assets.xcassets in Resources */,
+				F7C17B282864AD38006CA9FF /* RainConfetto.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,12 +246,14 @@
 			files = (
 				F7E195F327F5E6CD00A31BC3 /* Minesweeper.swift in Sources */,
 				F71DFA3928086EE100B7677B /* RandomIndexSelector.swift in Sources */,
+				F7C17B2C2864BA54006CA9FF /* UIConfettiView.swift in Sources */,
 				F7E195C927F5DFF300A31BC3 /* ContentView.swift in Sources */,
 				F7E195C727F5DFF300A31BC3 /* MinesweeperApp.swift in Sources */,
 				F7E195F127F5E0A000A31BC3 /* MinesweeperBoard.swift in Sources */,
 				F71DFA33280866EC00B7677B /* BoardGenerator.swift in Sources */,
 				F7880D38281AE8CF001A5B11 /* CellView.swift in Sources */,
 				F71DFA372808674500B7677B /* RandomBoardGenerator.swift in Sources */,
+				F7C17B2A2864ADF2006CA9FF /* ConfettiView.swift in Sources */,
 				F7EFCC2327FF3762002E5294 /* MinesweeperBoardViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
