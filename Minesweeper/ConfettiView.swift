@@ -4,7 +4,6 @@ import UIKit
 struct ConfettiView: UIViewRepresentable {
     func makeUIView(context: Context) -> some UIView {
         let view = UIConfettiView()
-        view.backgroundColor = .gray
         return view
     }
     

@@ -8,7 +8,7 @@ struct ContentView: View {
 }
 
 struct MinesweeperBoardView: View {
-    @State var viewModel = MinesweeperBoardViewModel(10, 10)
+    @State var viewModel = MinesweeperBoardViewModel(2, 2)
     
     var body: some View {
         VStack {
@@ -21,6 +21,11 @@ struct MinesweeperBoardView: View {
         }
         .minimumScaleFactor(0.00001)
         .font(.largeTitle)
+        .overlay {
+            if viewModel.playState == .won {
+                ConfettiView().allowsHitTesting(false)
+            }
+        }
     }
     
     private func rowView(_ row: MinesweeperRow) -> some View {
@@ -41,4 +46,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-//TODO: animations etc when winning/losing a game
+//TODO: animations when losing a game

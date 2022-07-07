@@ -1,4 +1,5 @@
 import UIKit
+import Algorithms
 
 class UIConfettiView: UIView {
     private var emitterLayer: CAEmitterLayer!
@@ -26,6 +27,8 @@ class UIConfettiView: UIView {
     
     private func emitter() -> CAEmitterLayer {
         let emitterLayer = CAEmitterLayer()
+        emitterLayer.emitterShape = .line
+        emitterLayer.emitterSize = CGSize(width: self.bounds.width, height: 10)
         emitterLayer.emitterCells = self.emitterCells()
         emitterLayer.beginTime = CACurrentMediaTime()
         return emitterLayer
@@ -33,25 +36,28 @@ class UIConfettiView: UIView {
     
     private func emitterCells() -> [CAEmitterCell] {
         let colors: [UIColor] = [.red, .orange, .yellow, .green, .blue, .purple]
-        let confetti: [Confetto] = colors.map {
-            Confetto(color: $0, shape: .rectangle)
-        }
-        return confetti.map(self.emitterCell)
+        let shapes = ConfettoShape.allCases
+        return product(colors, shapes)
+            .map(Confetto.init)
+            .map(self.emitterCell)
+            .shuffled()
     }
     
     private func emitterCell(confetto: Confetto) -> CAEmitterCell {
         let emitterCell = CAEmitterCell()
         emitterCell.beginTime = 0.1
-        emitterCell.duration = 5
+        emitterCell.duration = 0.1
         emitterCell.lifetime = 5
         emitterCell.contents = self.image(confetto: confetto)
         emitterCell.emissionRange = CGFloat.pi
-        emitterCell.birthRate = 10
-        emitterCell.velocity = 100
+        emitterCell.birthRate = 1000
+        emitterCell.velocity = 300
         emitterCell.velocityRange = 100
-        emitterCell.yAcceleration = 150
-        emitterCell.scaleRange = 0.1
-        emitterCell.scale = 0.4
+        emitterCell.yAcceleration = 300
+        emitterCell.scaleRange = 0.2
+        emitterCell.scale = 0.3
+        emitterCell.spin = 0
+        emitterCell.spinRange = 50
         return emitterCell
     }
         
@@ -72,6 +78,14 @@ class UIConfettiView: UIView {
             return CGPath(ellipseIn: rectangle, transform: nil)
         case .rectangle:
             return CGPath(rect: rectangle, transform: nil)
+        case .triangle:
+            let something = rectangle.width / sqrt(3)
+            let path = UIBezierPath()
+            path.move(to: CGPoint(x: rectangle.midX, y: rectangle.minY))
+            path.addLine(to: CGPoint(x: rectangle.midX + something, y: rectangle.maxY))
+            path.addLine(to: CGPoint(x: rectangle.midX - something, y: rectangle.maxY))
+            path.addLine(to: CGPoint(x: rectangle.midX, y: rectangle.minY))
+            return path.cgPath
         }
         
     }
@@ -82,7 +96,8 @@ struct Confetto {
     let shape: ConfettoShape
 }
 
-enum ConfettoShape {
+enum ConfettoShape: CaseIterable {
     case circle
     case rectangle
+    case triangle
 }
