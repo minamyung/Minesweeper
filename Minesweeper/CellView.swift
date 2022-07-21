@@ -19,13 +19,15 @@ struct CellView: View {
             .aspectRatio(1, contentMode: .fit)
         case .sweep(let count):
             ZStack {
-                Color.gray
-                Text(String(count))
+                Color.mint
+                if count != 0 {
+                    Text(String(count))
+                }
             }
             .aspectRatio(1, contentMode: .fit)
         case .hidden:
             Button(action: self.action) {
-                Color.gray
+                Color.green
                     .aspectRatio(1, contentMode: .fit)
             }
         }

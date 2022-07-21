@@ -15,6 +15,9 @@
 		F7880D38281AE8CF001A5B11 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7880D37281AE8CF001A5B11 /* CellView.swift */; };
 		F79E5A6A283687E3004A0F43 /* MockBoardGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79E5A69283687E3004A0F43 /* MockBoardGenerator.swift */; };
 		F79FDDEC2877223D0043D4EA /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = F79FDDEB2877223D0043D4EA /* Algorithms */; };
+		F7A523682889898800444F62 /* MinesweeperBoardViewModelInitialisationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A523672889898800444F62 /* MinesweeperBoardViewModelInitialisationTests.swift */; };
+		F7A5236A288989FA00444F62 /* MinesweeperBoardViewModelGameStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A52369288989FA00444F62 /* MinesweeperBoardViewModelGameStateTests.swift */; };
+		F7A5236C28898AE900444F62 /* MinesweeperBoardViewModelCellActionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A5236B28898AE900444F62 /* MinesweeperBoardViewModelCellActionTests.swift */; };
 		F7C17B262864AB29006CA9FF /* Confetto.sks in Resources */ = {isa = PBXBuildFile; fileRef = F7C17B252864AB29006CA9FF /* Confetto.sks */; };
 		F7C17B282864AD38006CA9FF /* RainConfetto.sks in Resources */ = {isa = PBXBuildFile; fileRef = F7C17B272864AD38006CA9FF /* RainConfetto.sks */; };
 		F7C17B2A2864ADF2006CA9FF /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C17B292864ADF2006CA9FF /* ConfettiView.swift */; };
@@ -27,7 +30,7 @@
 		F7E195F127F5E0A000A31BC3 /* MinesweeperBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E195F027F5E0A000A31BC3 /* MinesweeperBoard.swift */; };
 		F7E195F327F5E6CD00A31BC3 /* Minesweeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E195F227F5E6CD00A31BC3 /* Minesweeper.swift */; };
 		F7EFCC2327FF3762002E5294 /* MinesweeperBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EFCC2227FF3762002E5294 /* MinesweeperBoardViewModel.swift */; };
-		F7EFCC2527FF385C002E5294 /* MinesweeperBoardViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EFCC2427FF385C002E5294 /* MinesweeperBoardViewModelTests.swift */; };
+		F7EFCC2527FF385C002E5294 /* MinesweeperBoardViewModelBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EFCC2427FF385C002E5294 /* MinesweeperBoardViewModelBaseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,9 @@
 		F71DFA3A280871F500B7677B /* MockRandomIndexSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRandomIndexSelector.swift; sourceTree = "<group>"; };
 		F7880D37281AE8CF001A5B11 /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
 		F79E5A69283687E3004A0F43 /* MockBoardGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBoardGenerator.swift; sourceTree = "<group>"; };
+		F7A523672889898800444F62 /* MinesweeperBoardViewModelInitialisationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinesweeperBoardViewModelInitialisationTests.swift; sourceTree = "<group>"; };
+		F7A52369288989FA00444F62 /* MinesweeperBoardViewModelGameStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinesweeperBoardViewModelGameStateTests.swift; sourceTree = "<group>"; };
+		F7A5236B28898AE900444F62 /* MinesweeperBoardViewModelCellActionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinesweeperBoardViewModelCellActionTests.swift; sourceTree = "<group>"; };
 		F7C17B252864AB29006CA9FF /* Confetto.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Confetto.sks; sourceTree = "<group>"; };
 		F7C17B272864AD38006CA9FF /* RainConfetto.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RainConfetto.sks; sourceTree = "<group>"; };
 		F7C17B292864ADF2006CA9FF /* ConfettiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiView.swift; sourceTree = "<group>"; };
@@ -62,7 +68,7 @@
 		F7E195F027F5E0A000A31BC3 /* MinesweeperBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinesweeperBoard.swift; sourceTree = "<group>"; };
 		F7E195F227F5E6CD00A31BC3 /* Minesweeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minesweeper.swift; sourceTree = "<group>"; };
 		F7EFCC2227FF3762002E5294 /* MinesweeperBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinesweeperBoardViewModel.swift; sourceTree = "<group>"; };
-		F7EFCC2427FF385C002E5294 /* MinesweeperBoardViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinesweeperBoardViewModelTests.swift; sourceTree = "<group>"; };
+		F7EFCC2427FF385C002E5294 /* MinesweeperBoardViewModelBaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinesweeperBoardViewModelBaseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F7A523662889895500444F62 /* MinesweeperBoardViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				F7EFCC2427FF385C002E5294 /* MinesweeperBoardViewModelBaseTests.swift */,
+				F7A523672889898800444F62 /* MinesweeperBoardViewModelInitialisationTests.swift */,
+				F7A52369288989FA00444F62 /* MinesweeperBoardViewModelGameStateTests.swift */,
+				F7A5236B28898AE900444F62 /* MinesweeperBoardViewModelCellActionTests.swift */,
+			);
+			path = MinesweeperBoardViewModelTests;
+			sourceTree = "<group>";
+		};
 		F7E195BA27F5DFF300A31BC3 = {
 			isa = PBXGroup;
 			children = (
@@ -136,7 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				F7E195D727F5DFF500A31BC3 /* MinesweeperTests.swift */,
-				F7EFCC2427FF385C002E5294 /* MinesweeperBoardViewModelTests.swift */,
+				F7A523662889895500444F62 /* MinesweeperBoardViewModelTests */,
 				F71DFA302808636100B7677B /* MinesweeperBoardGeneratorTests.swift */,
 				F71DFA3A280871F500B7677B /* MockRandomIndexSelector.swift */,
 				F79E5A69283687E3004A0F43 /* MockBoardGenerator.swift */,
@@ -272,9 +289,12 @@
 			files = (
 				F79E5A6A283687E3004A0F43 /* MockBoardGenerator.swift in Sources */,
 				F71DFA3B280871F500B7677B /* MockRandomIndexSelector.swift in Sources */,
-				F7EFCC2527FF385C002E5294 /* MinesweeperBoardViewModelTests.swift in Sources */,
+				F7A5236C28898AE900444F62 /* MinesweeperBoardViewModelCellActionTests.swift in Sources */,
+				F7A5236A288989FA00444F62 /* MinesweeperBoardViewModelGameStateTests.swift in Sources */,
+				F7EFCC2527FF385C002E5294 /* MinesweeperBoardViewModelBaseTests.swift in Sources */,
 				F71DFA312808636100B7677B /* MinesweeperBoardGeneratorTests.swift in Sources */,
 				F7E195D827F5DFF500A31BC3 /* MinesweeperTests.swift in Sources */,
+				F7A523682889898800444F62 /* MinesweeperBoardViewModelInitialisationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

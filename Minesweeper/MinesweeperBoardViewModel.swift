@@ -36,14 +36,38 @@ public struct MinesweeperBoardViewModel {
     }
     
     public mutating func cellAction(for cell: MinesweeperCell) {
+        guard cell.state == .hidden else { return }
         guard let index = self.index(for: cell) else { return }
-        let state = MinesweeperCell.State(
-            outputFieldState: minesweeper.output.field[index.section][index.item]
-            )
-
+        let state = self.getState(for: index)
+        
         rows[index.section].cells[index.item].state = state
         
+        if state == .sweep(0) {
+            self.revealCellsNeighbouring(index)
+        }
+        
         self.updatePlayState()
+    }
+    
+    private func getState(for index: IndexPath) -> MinesweeperCell.State {
+        MinesweeperCell.State(
+            outputFieldState: minesweeper.output.field[index.section][index.item]
+        )
+    }
+    
+    private mutating func revealCellsNeighbouring(_ index: IndexPath) {
+        let neighbouringCellIndices = rows
+            .enumerated()
+            .flatMap { rowIndex, row in
+                row.cells.indices.compactMap { cellIndex -> IndexPath? in
+                    guard abs(cellIndex - index.item) <= 1,
+                          abs(rowIndex - index.section) <= 1 else { return nil }
+                    return IndexPath(item: cellIndex, section: rowIndex)
+                }
+            }
+        neighbouringCellIndices
+            .map { rows[$0.section].cells[$0.item] }
+            .forEach { cellAction(for: $0) }
     }
     
     private mutating func updatePlayState() {
@@ -121,7 +145,7 @@ public struct MinesweeperRow: Identifiable {
 private extension MinesweeperRow {
     init(input: [OutputFieldState]) {
         self.cells = input
-            .map { _ in 
+            .map { _ in
                 MinesweeperCell.init(
                     state: .hidden
                 )
@@ -132,8 +156,8 @@ private extension MinesweeperRow {
 public struct MinesweeperCell: Identifiable {
     public let id = UUID()
     public var state: State
-
-    public enum State {
+    
+    public enum State: Equatable {
         case hidden
         case mine
         case sweep(Int)

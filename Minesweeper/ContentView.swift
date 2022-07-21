@@ -8,7 +8,7 @@ struct ContentView: View {
 }
 
 struct MinesweeperBoardView: View {
-    @State var viewModel = MinesweeperBoardViewModel(2, 2)
+    @State var viewModel = MinesweeperBoardViewModel(10, 10)
     
     var body: some View {
         VStack {
@@ -46,4 +46,7 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-//TODO: animations when losing a game
+
+// TODO: refactor
+// TODO: animations when losing a game
+// TODO: flags
