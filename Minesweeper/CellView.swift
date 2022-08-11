@@ -40,8 +40,8 @@ struct CellView: View {
                         .padding(5)
                         .foregroundColor(.red)
                 }
-                .aspectRatio(1, contentMode: .fit)
             }
+            .aspectRatio(1, contentMode: .fit)
         }
     }
 }

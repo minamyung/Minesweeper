@@ -45,6 +45,7 @@ public struct MinesweeperBoardViewModel {
         if self.flagMode {
             self.toggleCellFlagState(at: index)
         } else {
+            guard cell.state != .flagged else { return }
             self.revealCell(at: index)
             self.updatePlayState()
         }
