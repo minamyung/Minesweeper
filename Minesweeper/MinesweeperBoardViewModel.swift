@@ -2,6 +2,7 @@ import Foundation
 
 public struct MinesweeperBoardViewModel {
     public var playState = PlayState.inProgress
+    public var flagMode = false
     public var rows: [MinesweeperRow] = []
     private let boardGenerator: BoardGenerator
     private let height: Int
@@ -36,8 +37,33 @@ public struct MinesweeperBoardViewModel {
     }
     
     public mutating func cellAction(for cell: MinesweeperCell) {
-        guard cell.state == .hidden else { return }
-        guard let index = self.index(for: cell) else { return }
+        guard
+            cell.state.isNotRevealed,
+            let index = self.index(for: cell)
+        else { return }
+        
+        if self.flagMode {
+            self.toggleCellFlagState(at: index)
+        } else {
+            self.revealCell(at: index)
+            self.updatePlayState()
+        }
+    }
+    
+    private mutating func toggleCellFlagState(at index: IndexPath) {
+        let currentState = rows[index.section].cells[index.item].state
+        let newState: MinesweeperCell.State
+        
+        switch currentState {
+        case .flagged: newState = .hidden
+        case .hidden: newState = .flagged
+        default: newState = currentState
+        }
+        
+        rows[index.section].cells[index.item].state = newState
+    }
+    
+    private mutating func revealCell(at index: IndexPath) {
         let state = self.getState(for: index)
         
         rows[index.section].cells[index.item].state = state
@@ -45,8 +71,6 @@ public struct MinesweeperBoardViewModel {
         if state == .sweep(0) {
             self.revealCellsNeighbouring(index)
         }
-        
-        self.updatePlayState()
     }
     
     private func getState(for index: IndexPath) -> MinesweeperCell.State {
@@ -159,6 +183,7 @@ public struct MinesweeperCell: Identifiable {
     
     public enum State: Equatable {
         case hidden
+        case flagged
         case mine
         case sweep(Int)
         
@@ -182,5 +207,9 @@ extension MinesweeperCell.State {
     var isMine: Bool {
         guard case .mine = self else { return false }
         return true
+    }
+    
+    var isNotRevealed: Bool {
+        self == .flagged || self == .hidden
     }
 }

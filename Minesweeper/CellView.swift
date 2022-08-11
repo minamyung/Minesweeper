@@ -30,6 +30,18 @@ struct CellView: View {
                 Color.green
                     .aspectRatio(1, contentMode: .fit)
             }
+        case .flagged:
+            Button(action: self.action) {
+                ZStack {
+                    Color.green
+                    Image(systemName: "flag.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .padding(5)
+                        .foregroundColor(.red)
+                }
+                .aspectRatio(1, contentMode: .fit)
+            }
         }
     }
 }

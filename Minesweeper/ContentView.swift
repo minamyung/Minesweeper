@@ -12,6 +12,7 @@ struct MinesweeperBoardView: View {
     
     var body: some View {
         VStack {
+            Toggle("Flag mode", isOn: $viewModel.flagMode)
             ForEach(viewModel.rows, content: rowView)
                 .disabled(viewModel.playState != .inProgress)
             Button("Reset") {

@@ -30,18 +30,3 @@ class MinesweeperBoardViewModelBaseTests: XCTestCase {
         case columnIndexOutOfBounds
     }
 }
-
-extension MinesweeperCell.State: Equatable {
-    public static func == (lhs: MinesweeperCell.State, rhs: MinesweeperCell.State) -> Bool {
-        switch (lhs, rhs) {
-        case (.hidden, .hidden):
-            return true
-        case (.mine, .mine):
-            return true
-        case (.sweep(let lhsCount), .sweep(let rhsCount)):
-            return lhsCount == rhsCount
-        default:
-            return false
-        }
-    }
-}
