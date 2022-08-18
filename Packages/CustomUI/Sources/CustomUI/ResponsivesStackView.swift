@@ -1,19 +1,19 @@
 import SwiftUI
 
-struct ResponsiveStackView<Content: View>: View {
+public struct ResponsiveStackView<Content: View>: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
     private let spacing: CGFloat?
     private let isInverted: Bool
     private let content: () -> Content
     
-    init(spacing: CGFloat? = nil, isInverted: Bool = false, @ViewBuilder content: @escaping () -> Content) {
+    public init(spacing: CGFloat? = nil, isInverted: Bool = false, @ViewBuilder content: @escaping () -> Content) {
         self.spacing = spacing
         self.isInverted = isInverted
         self.content = content
     }
     
-    var body: some View {
+    public var body: some View {
         switch self.naturalAxis.inverted(self.isInverted) {
         case .vertical:
             VStack(content: self.content)

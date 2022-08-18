@@ -1,4 +1,5 @@
 import SwiftUI
+import CustomUI
 
 struct MinesweeperBoardView: View {
     @State var viewModel = MinesweeperBoardViewModel(10, 10)

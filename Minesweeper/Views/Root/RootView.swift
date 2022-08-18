@@ -14,5 +14,4 @@ struct RootView_Previews: PreviewProvider {
     }
 }
 
-// TODO: refactor
 // TODO: animations when losing a game

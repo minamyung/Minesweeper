@@ -1,10 +1,15 @@
 import SwiftUI
 
-struct ImageToggleStyle: ToggleStyle {
+public struct ImageToggleStyle: ToggleStyle {
     let onImage: Image
     let offImage: Image
     
-    func makeBody(configuration: Configuration) -> some View {
+    public init(onImage: Image, offImage: Image) {
+        self.onImage = onImage
+        self.offImage = offImage
+    }
+    
+    public func makeBody(configuration: Configuration) -> some View {
         HStack {
             configuration.label
             Button(

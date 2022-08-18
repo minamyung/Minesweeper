@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F714A85528AE7C110029756C /* ImageToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F714A85428AE7C110029756C /* ImageToggleStyle.swift */; };
-		F714A85728AE7C5D0029756C /* ResponsivesStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F714A85628AE7C5D0029756C /* ResponsivesStackView.swift */; };
 		F714A85928AE7CB80029756C /* MinesweeperBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F714A85828AE7CB80029756C /* MinesweeperBoardView.swift */; };
+		F714A86228AE833B0029756C /* CustomUI in Frameworks */ = {isa = PBXBuildFile; productRef = F714A86128AE833B0029756C /* CustomUI */; };
 		F71DFA312808636100B7677B /* MinesweeperBoardGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71DFA302808636100B7677B /* MinesweeperBoardGeneratorTests.swift */; };
 		F71DFA33280866EC00B7677B /* BoardGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71DFA32280866EC00B7677B /* BoardGenerator.swift */; };
 		F71DFA372808674500B7677B /* RandomBoardGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71DFA362808674500B7677B /* RandomBoardGenerator.swift */; };
@@ -46,9 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F714A85428AE7C110029756C /* ImageToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageToggleStyle.swift; sourceTree = "<group>"; };
-		F714A85628AE7C5D0029756C /* ResponsivesStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsivesStackView.swift; sourceTree = "<group>"; };
 		F714A85828AE7CB80029756C /* MinesweeperBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinesweeperBoardView.swift; sourceTree = "<group>"; };
+		F714A85F28AE82FF0029756C /* CustomUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CustomUI; path = Packages/CustomUI; sourceTree = "<group>"; };
 		F71DFA302808636100B7677B /* MinesweeperBoardGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinesweeperBoardGeneratorTests.swift; sourceTree = "<group>"; };
 		F71DFA32280866EC00B7677B /* BoardGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardGenerator.swift; sourceTree = "<group>"; };
 		F71DFA362808674500B7677B /* RandomBoardGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomBoardGenerator.swift; sourceTree = "<group>"; };
@@ -81,6 +79,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F79FDDEC2877223D0043D4EA /* Algorithms in Frameworks */,
+				F714A86228AE833B0029756C /* CustomUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,7 +98,6 @@
 			children = (
 				F714A85A28AE7D040029756C /* Confetti */,
 				F714A85C28AE7D6F0029756C /* Minesweeper */,
-				F714A85B28AE7D470029756C /* ReusableElements */,
 				F714A85D28AE7D8A0029756C /* Root */,
 			);
 			path = Views;
@@ -143,15 +141,6 @@
 			path = Confetti;
 			sourceTree = "<group>";
 		};
-		F714A85B28AE7D470029756C /* ReusableElements */ = {
-			isa = PBXGroup;
-			children = (
-				F714A85428AE7C110029756C /* ImageToggleStyle.swift */,
-				F714A85628AE7C5D0029756C /* ResponsivesStackView.swift */,
-			);
-			path = ReusableElements;
-			sourceTree = "<group>";
-		};
 		F714A85C28AE7D6F0029756C /* Minesweeper */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +158,21 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
+		F714A85E28AE82FF0029756C /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				F714A85F28AE82FF0029756C /* CustomUI */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		F714A86028AE833B0029756C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F7A523662889895500444F62 /* MinesweeperBoardViewModelTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,9 +188,11 @@
 		F7E195BA27F5DFF300A31BC3 = {
 			isa = PBXGroup;
 			children = (
+				F714A85E28AE82FF0029756C /* Packages */,
 				F7E195C527F5DFF300A31BC3 /* Minesweeper */,
 				F7E195D627F5DFF500A31BC3 /* MinesweeperTests */,
 				F7E195C427F5DFF300A31BC3 /* Products */,
+				F714A86028AE833B0029756C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -249,6 +255,7 @@
 			name = Minesweeper;
 			packageProductDependencies = (
 				F79FDDEB2877223D0043D4EA /* Algorithms */,
+				F714A86128AE833B0029756C /* CustomUI */,
 			);
 			productName = Minesweeper;
 			productReference = F7E195C327F5DFF300A31BC3 /* Minesweeper.app */;
@@ -339,7 +346,6 @@
 			files = (
 				F7E195F327F5E6CD00A31BC3 /* Minesweeper.swift in Sources */,
 				F71DFA3928086EE100B7677B /* RandomIndexSelector.swift in Sources */,
-				F714A85728AE7C5D0029756C /* ResponsivesStackView.swift in Sources */,
 				F7C17B2C2864BA54006CA9FF /* UIConfettiView.swift in Sources */,
 				F7E195C927F5DFF300A31BC3 /* RootView.swift in Sources */,
 				F7E195C727F5DFF300A31BC3 /* MinesweeperApp.swift in Sources */,
@@ -350,7 +356,6 @@
 				F71DFA372808674500B7677B /* RandomBoardGenerator.swift in Sources */,
 				F7C17B2A2864ADF2006CA9FF /* ConfettiView.swift in Sources */,
 				F7EFCC2327FF3762002E5294 /* MinesweeperBoardViewModel.swift in Sources */,
-				F714A85528AE7C110029756C /* ImageToggleStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,6 +642,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F714A86128AE833B0029756C /* CustomUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CustomUI;
+		};
 		F79FDDEB2877223D0043D4EA /* Algorithms */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F79FDDEA2877223D0043D4EA /* XCRemoteSwiftPackageReference "swift-algorithms" */;
