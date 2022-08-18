@@ -12,11 +12,19 @@ struct MinesweeperBoardView: View {
     
     var body: some View {
         ResponsiveStackView {
-            Toggle("Flag mode", isOn: $viewModel.flagMode)
-            ForEach(viewModel.rows, content: rowView)
-                .disabled(viewModel.playState != .inProgress)
-            Button("Reset") {
-                viewModel.reset()
+            ResponsiveStackView(isInverted: true) {
+                Toggle(isOn: $viewModel.flagMode) { }
+                    .toggleStyle(ImageToggleStyle(onImage: Image(systemName: "flag.circle.fill"), offImage: Image(systemName: "flag.slash.circle.fill")))
+                Spacer()
+                Button(
+                    action: { self.viewModel.reset() },
+                    label: { Image(systemName: "arrow.counterclockwise.circle.fill") }
+                    )
+            }
+            
+            VStack {
+                ForEach(viewModel.rows, content: rowView)
+                    .disabled(viewModel.playState != .inProgress)
             }
         }
         .minimumScaleFactor(0.00001)
@@ -45,21 +53,48 @@ struct ResponsiveStackView<Content: View>: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
     private let spacing: CGFloat?
+    private let isInverted: Bool
     private let content: () -> Content
     
-    init(spacing: CGFloat? = nil, @ViewBuilder content: @escaping () -> Content) {
+    init(spacing: CGFloat? = nil, isInverted: Bool = false, @ViewBuilder content: @escaping () -> Content) {
         self.spacing = spacing
+        self.isInverted = isInverted
         self.content = content
     }
     
     var body: some View {
+        switch self.naturalAxis.inverted(self.isInverted) {
+        case .vertical:
+            VStack(content: self.content)
+        case .horizontal:
+            HStack(content: self.content)
+        }
+    }
+    
+    private var naturalAxis: Axis {
         switch horizontalSizeClass {
         case .compact, .none:
-            VStack(content: self.content)
+            return .vertical
         case .regular:
-            HStack(content: self.content)
+            return .horizontal
         @unknown default:
-            VStack(content: self.content)
+            return .vertical
+        }
+    }
+    
+    private enum Axis {
+        case vertical
+        case horizontal
+        
+        func inverted(_ isInverted: Bool) -> Self {
+            isInverted ? inverted() : self
+        }
+        
+        func inverted() -> Self {
+            switch self {
+            case .vertical: return .horizontal
+            case .horizontal: return .vertical
+            }
         }
     }
 }
@@ -67,9 +102,32 @@ struct ResponsiveStackView<Content: View>: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .previewInterfaceOrientation(.portrait)
     }
 }
 
-// TODO: Fix ResponsiveStackView so it works in landscape mode
+struct ImageToggleStyle: ToggleStyle {
+    let onImage: Image
+    let offImage: Image
+    
+    func makeBody(configuration: Configuration) -> some View {
+        HStack {
+            configuration.label
+            Button(
+                action: { self.action(configuration: configuration) },
+                label: { image(configuration: configuration) }
+            )
+        }
+    }
+    
+    private func action(configuration: Configuration) {
+        configuration.isOn.toggle()
+    }
+    
+    private func image(configuration: Configuration) -> some View {
+        return configuration.isOn ? self.onImage : self.offImage
+    }
+}
+
 // TODO: refactor
 // TODO: animations when losing a game
