@@ -21,6 +21,8 @@
 		F7A523682889898800444F62 /* MinesweeperBoardViewModelInitialisationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A523672889898800444F62 /* MinesweeperBoardViewModelInitialisationTests.swift */; };
 		F7A5236A288989FA00444F62 /* MinesweeperBoardViewModelGameStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A52369288989FA00444F62 /* MinesweeperBoardViewModelGameStateTests.swift */; };
 		F7A5236C28898AE900444F62 /* MinesweeperBoardViewModelCellActionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A5236B28898AE900444F62 /* MinesweeperBoardViewModelCellActionTests.swift */; };
+		F7BD2FCE28C0E789003DC263 /* ExplosionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BD2FCD28C0E789003DC263 /* ExplosionStrategy.swift */; };
+		F7BD2FD128C0EAD2003DC263 /* BasicExplosionStrategyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BD2FD028C0EAD2003DC263 /* BasicExplosionStrategyTests.swift */; };
 		F7C17B2A2864ADF2006CA9FF /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C17B292864ADF2006CA9FF /* ConfettiView.swift */; };
 		F7C17B2C2864BA54006CA9FF /* UIConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C17B2B2864BA54006CA9FF /* UIConfettiView.swift */; };
 		F7E195C727F5DFF300A31BC3 /* MinesweeperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E195C627F5DFF300A31BC3 /* MinesweeperApp.swift */; };
@@ -58,6 +60,8 @@
 		F7A523672889898800444F62 /* MinesweeperBoardViewModelInitialisationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinesweeperBoardViewModelInitialisationTests.swift; sourceTree = "<group>"; };
 		F7A52369288989FA00444F62 /* MinesweeperBoardViewModelGameStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinesweeperBoardViewModelGameStateTests.swift; sourceTree = "<group>"; };
 		F7A5236B28898AE900444F62 /* MinesweeperBoardViewModelCellActionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinesweeperBoardViewModelCellActionTests.swift; sourceTree = "<group>"; };
+		F7BD2FCD28C0E789003DC263 /* ExplosionStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplosionStrategy.swift; sourceTree = "<group>"; };
+		F7BD2FD028C0EAD2003DC263 /* BasicExplosionStrategyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicExplosionStrategyTests.swift; sourceTree = "<group>"; };
 		F7C17B292864ADF2006CA9FF /* ConfettiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiView.swift; sourceTree = "<group>"; };
 		F7C17B2B2864BA54006CA9FF /* UIConfettiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConfettiView.swift; sourceTree = "<group>"; };
 		F7E195C327F5DFF300A31BC3 /* Minesweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Minesweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +115,7 @@
 				F71DFA32280866EC00B7677B /* BoardGenerator.swift */,
 				F7E195F227F5E6CD00A31BC3 /* Minesweeper.swift */,
 				F7E195F027F5E0A000A31BC3 /* MinesweeperBoard.swift */,
+				F7BD2FCD28C0E789003DC263 /* ExplosionStrategy.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -185,6 +190,14 @@
 			path = MinesweeperBoardViewModelTests;
 			sourceTree = "<group>";
 		};
+		F7BD2FCF28C0EA32003DC263 /* ExplosionStrategyTests */ = {
+			isa = PBXGroup;
+			children = (
+				F7BD2FD028C0EAD2003DC263 /* BasicExplosionStrategyTests.swift */,
+			);
+			path = ExplosionStrategyTests;
+			sourceTree = "<group>";
+		};
 		F7E195BA27F5DFF300A31BC3 = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +241,7 @@
 		F7E195D627F5DFF500A31BC3 /* MinesweeperTests */ = {
 			isa = PBXGroup;
 			children = (
+				F7BD2FCF28C0EA32003DC263 /* ExplosionStrategyTests */,
 				F7E195D727F5DFF500A31BC3 /* MinesweeperTests.swift */,
 				F7A523662889895500444F62 /* MinesweeperBoardViewModelTests */,
 				F71DFA302808636100B7677B /* MinesweeperBoardGeneratorTests.swift */,
@@ -349,6 +363,7 @@
 				F7C17B2C2864BA54006CA9FF /* UIConfettiView.swift in Sources */,
 				F7E195C927F5DFF300A31BC3 /* RootView.swift in Sources */,
 				F7E195C727F5DFF300A31BC3 /* MinesweeperApp.swift in Sources */,
+				F7BD2FCE28C0E789003DC263 /* ExplosionStrategy.swift in Sources */,
 				F714A85928AE7CB80029756C /* MinesweeperBoardView.swift in Sources */,
 				F7E195F127F5E0A000A31BC3 /* MinesweeperBoard.swift in Sources */,
 				F71DFA33280866EC00B7677B /* BoardGenerator.swift in Sources */,
@@ -364,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F79E5A6A283687E3004A0F43 /* MockBoardGenerator.swift in Sources */,
+				F7BD2FD128C0EAD2003DC263 /* BasicExplosionStrategyTests.swift in Sources */,
 				F71DFA3B280871F500B7677B /* MockRandomIndexSelector.swift in Sources */,
 				F7A5236C28898AE900444F62 /* MinesweeperBoardViewModelCellActionTests.swift in Sources */,
 				F7A5236A288989FA00444F62 /* MinesweeperBoardViewModelGameStateTests.swift in Sources */,

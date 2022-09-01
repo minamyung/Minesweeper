@@ -15,3 +15,5 @@ struct RootView_Previews: PreviewProvider {
 }
 
 // TODO: animations when losing a game
+// TODO: Different levels/difficulties + board size
+// TODO: Score??
